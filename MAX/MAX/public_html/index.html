@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max - Bem-vindo</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0056b3;
+            overflow-x: hidden;
+        }
+
+        .top-bar {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 20px; /* Reduzido para 2px */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 60px; /* Altura ajustada */
+        }
+
+        .nav-options a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-options a:hover {
+            color: #007bff;
+        }
+
+        main {
+            padding-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero {
+            background-image: url('https://cdn.telaviva.com.br/wp-content/uploads/2024/02/Max_Brand_16x9_Br-scaled.webp?_gl=1*e4v38*_ga*MTU2Njc0MDY3NS4xNzI2ODU3NTc0*_ga_W5WXMGDB67*MTcyNjg1NzU3My4xLjAuMTcyNjg1NzU3My4wLjAuMA..');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 450px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .plans-section {
+            background-color: #0056b3;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .plans-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .plans-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .plan {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .plan ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .plan ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra Superior Preta -->
+    <header class="top-bar">
+        <div class="logo-container">
+            <img src="../img/logo.png" alt="logo max" class="logo"> 
+        </div>
+        <div class="nav-options">
+            <a href="login.html">Entrar</a>
+            <a href="pagamento.html" class="signup-button">Assine Agora</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Hero com Imagem de Fundo -->
+        <section class="hero">
+            <h2>Muito mais a ver</h2>
+            <p>Planos a partir de R$18,90/mês</p>
+            <a href="pagamento.html" class="btn">Assinar Agora</a> <!-- Botão centralizado -->
+        </section>
+
+        <!-- Seção de Planos com Fundo Azul Escuro -->
+        <section id="plans" class="plans-section">
+            <h2>Nossos Planos de Assinatura</h2>
+            <div class="plans-container">
+                <div class="plan">
+                    <h3>Básico</h3>
+                    <ul>
+                        <li>Básico com Anúncios</li>
+                        <li>2 dispositivos ao mesmo tempo</li>
+                        <li>Resolução Full HD</li>
+                        <li>12x R$18,90/mês</li>
+                        <li>Preço total anual R$226,80</li>
+                    </ul>
+                </div>
+                <div class="plan">
+                    <h3>Standard</h3>
+                    <ul>
+                        <li>2 dispositivos ao mesmo tempo</li>
+                        <li>Resolução Full HD</li>
+                        <li>30 downloads para curtir off-line</li>
+                        <li>12x R$29,90/mês</li>
+                        <li>Preço total anual R$358,80</li>
+                    </ul>
+                </div>
+                <div class="plan">
+                    <h3>Platinum</h3>
+                    <ul>
+                        <li>4 dispositivos ao mesmo tempo</li>
+                        <li>Resolução Full HD e 4K Ultra HD</li>
+                        <li>Aúdio Dolby Atmos</li>
+                        <li>100 downloads para curtir off-line</li>
+                        <li>12x R$39,90/mês</li>
+                        <li>Preço total anual R$478,80</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Max. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo do Site com Imagem de Fundo */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Barra Superior Preta */
+.top-bar {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container .logo {
+    height: 40px; /* Ajuste o tamanho conforme necessário */
+}
+
+.nav-options a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-options a:hover {
+    color: #007bff;
+}
+
+/* Espaço para a barra superior */
+main {
+    padding-top: 70px; /* Altura da barra superior */
+}
+
+/* Seção Hero com Imagem de Fundo */
+.hero {
+    background-image: url('https://cdn.telaviva.com.br/wp-content/uploads/2024/02/Max_Brand_16x9_Br-scaled.webp?_gl=1*e4v38*_ga*MTU2Njc0MDY3NS4xNzI2ODU3NTc0*_ga_W5WXMGDB67*MTcyNjg1NzU3My4xLjAuMTcyNjg1NzU3My4wLjAuMA..');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 150px 20px; /* Aumenta o espaçamento interno */
+    text-align: center;
+    color: #fff; /* Cor do texto branca para contraste */
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* Seção de Planos com Fundo Azul */
+.plans-section {
+    background-color: #007bff; /* Mantém a cor de fundo azul */
+    padding: 60px 20px;
+    margin-top: 50px; /* Espaço entre a imagem e a seção de planos */
+    text-align: center;
+    color: #fff;
+}
+
+.plans-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.plans-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.plan h3 {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.plan ul {
+    list-style: none;
+    text-align: left;
+}
+
+.plan ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Modal de Login */
+.modal {
+    display: none; /* Oculto por padrão */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8); /* Fundo semi-transparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+    text-align: left;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.modal-content h2 {
+    text-align: center;
+}

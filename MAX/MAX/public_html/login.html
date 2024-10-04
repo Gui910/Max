@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Max</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Ajuste o caminho aqui -->
+    <style>
+        /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo do Site com Fundo Animado */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(270deg, #003366, #004080, #0056b3, #007acc, #0099cc, #00ccff, #0056b3);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #fff;
+    overflow-x: hidden; /* Impede rolagem horizontal */
+}
+
+/* Animação do Gradiente */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Barra Superior Preta */
+.top-bar {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo-container .logo {
+    height: 40px; /* Ajuste o tamanho conforme necessário */
+}
+
+.nav-options a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-options a:hover {
+    color: #007bff;
+}
+
+/* Seção de Login */
+.login-section {
+    padding: 100px 20px; /* Espaço superior para a barra de navegação */
+    text-align: center;
+    max-width: 400px;
+    margin: 100px auto; /* Centraliza a seção */
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo semi-transparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.login-section:hover {
+    transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #00ccff; /* Cor do título */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+    color: #00ccff; /* Cor dos rótulos */
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    box-shadow: 0 0 5px #00ccff;
+    border: 1px solid #00ccff; /* Bordas coloridas ao focar */
+}
+
+.forgot-password {
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.btn-login {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Efeito de zoom no botão */
+}
+
+/* Lista de provedores */
+.providers-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.providers-list li {
+    margin-bottom: 10px;
+}
+
+.providers-list a {
+    color: #00ccff; /* Cor dos links dos provedores */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.providers-list a:hover {
+    color: #007bff;
+    text-decoration: underline; /* Substitui o texto ao passar o mouse */
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer nav a {
+    color: #00ccff;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo da mensagem de aviso */
+.alert-message {
+    display: none; /* Oculta inicialmente */
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 5px; /* Tamanho reduzido */
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.btn-renew {
+    background-color: #007bff;
+    color: white;
+    padding: 2px 5px; /* Tamanho reduzido */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remover sublinhado */
+    font-size: 10px; /* Tamanho de fonte reduzido */
+}
+
+.btn-renew:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo-container">
+            <img src="../img/logo.png" alt="logo max" class="logo"> 
+        </div>
+        <div class="nav-options">
+            <a href="index.html">Home</a>
+            <a href="pagamento.html" class="signup-button">Assine Agora</a>
+        </div>
+    </header>
+
+    <div class="login-section">
+        <h1>Entrar</h1>
+        <p>Digite o endereço de e-mail e a senha da sua conta Max ou HBO Max.</p>
+
+        <form id="loginForm" onsubmit="return handleLogin(event)">
+            <label for="email">Endereço de e-mail</label>
+            <input type="email" id="email" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" required>
+
+            <a href="#" class="forgot-password">Esqueci minha senha</a>
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+
+        <!-- Mensagem de alerta -->
+        <div class="alert-message" id="alertMessage">
+            Seu plano expirou. Por favor, renove seu plano.
+            <a href="pagamento.html" class="btn-renew">Renovar Plano</a> <!-- Alterado para apontar para pagamento.html -->
+        </div>
+
+        <h2>Conecte seu provedor</h2>
+        <p>Selecione seu provedor de internet, celular ou TV abaixo para conectar sua assinatura:</p>
+        <ul class="providers-list">
+            <li><a href="https://www.primevideo.com">Prime Video Channels</a></li>
+            <li><a href="https://www.claro.com.br">CLARO/NET</a></li>
+            <li><a href="https://www.sky.com.br">DGO/SKY+</a></li>
+            <li><a href="https://www.mercadolivre.com.br">Mercado Livre</a></li>
+            <li><a href="https://www.oi.com.br">Oi</a></li>
+            <li><a href="https://www.sky.com.br">SKY</a></li>
+            <li><a href="https://www.tim.com.br">TIM</a></li>
+            <li><a href="https://www.vivo.com.br">Vivo</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Max. Todos os direitos reservados.</p>
+        <nav>
+            <a href="#">Privacidade</a>
+            <a href="#">Termos de Uso</a>
+        </nav>
+    </footer>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            // Lógica de autenticação aqui
+            // Após autenticação, exibe a mensagem de alerta
+            document.getElementById("alertMessage").style.display = "block"; // Exibe a mensagem apenas após o login
+        }
+
+        // Mensagem de alerta oculta inicialmente
+        document.getElementById("alertMessage").style.display = "none"; // Garantindo que comece oculto
+    </script>
+</body>
+</html>

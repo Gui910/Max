@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Max</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Verifique o caminho do style.css -->
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo do Site */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #00274d, #0056b3, #001f4d, #004080);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .top-bar {
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container .logo {
+            height: 120px; /* Ajuste a altura conforme necessário */
+        }
+
+        .nav-options a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-options a:hover {
+            color: #00ccff;
+        }
+
+        .signup-section {
+            padding: 30px;
+            text-align: center;
+            max-width: 600px;
+            margin: 80px 20px;
+            background-color: rgba(20, 20, 20, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 150px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #00ccff;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            flex: 1 1 45%;
+            min-width: 220px;
+            text-align: left;
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            color: #00ccff;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            background-color: #333;
+            color: #fff;
+            padding: 12px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            box-shadow: 0 0 5px #00ccff;
+            border: 2px solid #00ccff;
+        }
+
+        .btn-signup {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .btn-signup:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        footer nav a {
+            color: #00ccff;
+            margin: 0 5px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer nav a:hover {
+            text-decoration: underline;
+            color: #007bff;
+        }
+
+        @media (max-width: 480px) {
+            .signup-section {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo-container">
+            <img src="../img/logo.png" alt="logo max" class="logo">
+        </div>
+        <div class="nav-options">
+            <a href="index.html">Início</a>
+            <a href="https://help.max.com/br-pt/Answer/Detail/000002543">Sobre</a>
+            <a href="https://help.max.com/br-pt/Home/Index">Contato</a>
+        </div>
+    </header>
+
+    <div class="signup-section">
+        <h1>Cadastro</h1>
+        <p>Preencha os dados abaixo para se cadastrar.</p>
+        <form id="signupForm" onsubmit="handleSignup(event)">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" required placeholder="Seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" id="sobrenome" required placeholder="Seu sobrenome">
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" required placeholder="Seu CPF" maxlength="14" oninput="maskCPF(this)">
+            </div>
+            <div class="form-group">
+                <label for="cartao">Número do Cartão</label>
+                <input type="text" id="cartao" required placeholder="Número do cartão" maxlength="19" oninput="maskCard(this)">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required placeholder="Seu e-mail">
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" required placeholder="Sua senha">
+            </div>
+            <button type="submit" class="btn-signup">Cadastrar</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Max - Todos os direitos reservados.</p>
+        <nav>
+            <a href="#">Política de Privacidade</a> | 
+            <a href="#">Termos de Uso</a>
+        </nav>
+    </footer>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            // Captura as informações do formulário
+            const nome = document.getElementById('nome').value;
+            const sobrenome = document.getElementById('sobrenome').value;
+            const cpf = document.getElementById('cpf').value;
+            const cartao = document.getElementById('cartao').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Exibe o alerta com as informações
+            alert(`Cadastro realizado com sucesso!\n\nNome: ${nome} ${sobrenome}\nCPF: ${cpf}\nNúmero do Cartão: ${cartao}\nE-mail: ${email}\nSenha: ${senha}\n\nAVISO: Isso é um golpe! Não insira seus dados.`);
+            
+            // Abre o site
+            window.open('https://www.netmovies.com.br/', '_blank');
+        }
+
+        function maskCPF(cpfField) {
+            // Máscara para o CPF
+            cpfField.value = cpfField.value
+                .replace(/\D/g, '') // Remove tudo que não for dígito
+                .replace(/(\d{3})(\d)/, '$1.$2') // Coloca um ponto entre o terceiro e o quarto dígitos
+                .replace(/(\d{3})(\d)/, '$1.$2') // Coloca outro ponto entre o sexto e o sétimo dígitos
+                .replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Coloca um hífen entre o nono e o décimo dígitos
+        }
+
+        function maskCard(cardField) {
+            // Máscara para o cartão de crédito
+            cardField.value = cardField.value
+                .replace(/\D/g, '') // Remove tudo que não for dígito
+                .replace(/(\d{4})(\d)/, '$1 $2') // Coloca um espaço entre os blocos de quatro dígitos
+                .replace(/(\d{4})(\d)/, '$1 $2') // Repetindo o processo para os outros blocos
+                .replace(/(\d{4})(\d)/, '$1 $2');
+        }
+    </script>
+</body>
+</html>
